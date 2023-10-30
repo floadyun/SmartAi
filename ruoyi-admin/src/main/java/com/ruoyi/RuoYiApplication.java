@@ -1,5 +1,8 @@
 package com.ruoyi;
 
+import com.ruoyi.chat.server.AIChatServer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -10,8 +13,11 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
  * @author ruoyi
  */
 @SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })
-public class RuoYiApplication
+public class RuoYiApplication implements CommandLineRunner
 {
+    @Autowired
+    private AIChatServer aiChatServer;
+
     public static void main(String[] args)
     {
         // System.setProperty("spring.devtools.restart.enabled", "false");
@@ -26,5 +32,10 @@ public class RuoYiApplication
                 " |  | \\ `'   /|   `-'  /           \n" +
                 " |  |  \\    /  \\      /           \n" +
                 " ''-'   `'-'    `-..-'              ");
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+        aiChatServer.start();
     }
 }

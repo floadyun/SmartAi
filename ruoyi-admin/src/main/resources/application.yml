@@ -129,3 +129,13 @@ xss:
   excludes: /system/notice
   # 匹配链接
   urlPatterns: /system/*,/monitor/*,/tool/*
+
+#讯飞星火大模型
+sparkModel:
+  hostUrl: https://spark-api.xf-yun.com/v3.1/chat
+  appid: d1ce70e7
+  apiSecret: YTRhOGZjY2JjNGI3ZTMxY2FlNjUzNjlj
+  apiKey: b36c21a5d9d7f969a74b78248fd80eaa
+
+websocket:
+  port: 9527
